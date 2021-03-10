@@ -1,0 +1,15 @@
+body {
+  background-color: $c-background-1;
+  margin: 0 !important;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#id_popup {
+  display: none;
+}

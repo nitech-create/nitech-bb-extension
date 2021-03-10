@@ -1,0 +1,153 @@
+table {
+  border-collapse: collapse;
+}
+
+tr:first-of-type {
+  border-bottom: 1px solid $c-separator;
+
+  td {
+    &:hover {
+      background-color: $c-background-2;
+    }
+
+    &:nth-of-type(3) {
+      color: $c-text-1;
+    }
+
+    &:nth-of-type(10) {
+      // すべて既読にするボタン
+      button {
+        width: 100%;
+        height: 100%;
+        padding: 0 8px;
+        appearance: none;
+        background-color: transparent;
+        box-sizing: border-box;
+        border: none;
+        outline: none;
+        @include insertImageAfter(90%, 90%, $i-makeRead);
+      }
+    }
+  }
+}
+
+tr + tr {
+  background-color: $c-background-1;
+  border-left: 6px solid transparent;
+  padding: 8px 0;
+
+  &:not(last-child) {
+    border-bottom: 1px solid $c-separator;
+  }
+
+  &.read {
+    background-color: $c-read;
+  }
+
+  &.highlighted {
+    border-left-color: $c-highlight;
+  }
+
+  &.blankHead {
+    td:nth-of-type(7) {
+      text-indent: -0.6em;
+    }
+  }
+
+  &.hidden {
+    display: none;
+  }
+
+  &:hover {
+    background-color: $c-background-3;
+  }
+}
+
+td {
+  padding: 6px 0;
+  background-color: transparent;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-all;
+  color: $c-text-1;
+  cursor: pointer;
+
+  &:nth-of-type(1) {
+    // 既読チェックボックス
+    display: none;
+  }
+
+  &:nth-of-type(10){
+    // 選択チェックボックス
+    cursor: default;
+    padding-left: 8px;
+
+    $box-size: 0.85em;
+
+    input {
+      display: none;
+
+      + label {
+        display: inline-block;
+        margin: 1em - $box-size;
+        width: $box-size;
+        height: $box-size;
+        border: 2px $c-separator solid;
+        border-radius: 4px;
+      }
+
+      &:checked + label {
+        background-color: $c-highlight;
+        border-color: transparent;
+        @include insertImageAfter(100%, 100%, $ii-check);
+      }
+    }
+  }
+
+  &:nth-of-type(2) {
+    // 強調チェックボックス
+    display: relative;
+    cursor: default;
+    text-align: right;
+
+    input {
+      display: none;
+
+      &:not(:checked) + label {
+        margin-left: -10px;
+        @include insertImageBefore(1em, 1em, $i-star1) {
+          margin-top: 2px;
+        }
+      }
+
+      &:checked + label {
+        margin-left: -10px;
+        @include insertImageBefore(1em, 1em, $i-star2) {
+          margin-top: 2px;
+        }
+      }
+    }
+  }
+
+  &:nth-of-type(3) {
+    // 日付
+    font-size: 0.9em;
+    color: $c-text-2;
+    padding-right: 8px;
+  }
+
+  &:nth-of-type(7) {
+    // 件名
+    padding-left: 12px;
+
+    a {
+      pointer-events: none
+    }
+  }
+
+  &:nth-of-type(9) {
+    // 掲示者
+    font-size: 0.9em;
+  }
+}

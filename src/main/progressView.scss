@@ -1,0 +1,15 @@
+#progressView {
+  background-color: $ci-background-5;
+  color: $ci-text-1;
+  padding: 8px;
+  border-radius: 4px;
+  position: fixed;
+
+  $spacing: 8px;
+  right: $spacing;
+  bottom: $spacing;
+
+  &.hidden {
+    display: none;
+  }
+}

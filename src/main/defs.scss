@@ -1,0 +1,135 @@
+// color
+$c-background-1: var(--c-background-1);
+$c-background-2: var(--c-background-2);
+$c-background-3: var(--c-background-3);
+$c-background-4: var(--c-background-4);
+$c-background-5: var(--c-background-5);
+$c-highlight: var(--c-highlight);
+$c-separator: var(--c-separator);
+$c-read: var(--c-read);
+$c-read-2: var(--c-read-2);
+$c-text-1: var(--c-text-1);
+$c-text-2: var(--c-text-2);
+$c-link-1: var(--c-link-1);
+$c-link-2: var(--c-link-2);
+
+// color inverted
+$ci-background-1: var(--ci-background-1);
+$ci-background-2: var(--ci-background-2);
+$ci-background-3: var(--ci-background-3);
+$ci-background-4: var(--ci-background-4);
+$ci-background-5: var(--ci-background-5);
+$ci-highlight: var(--ci-highlight);
+$ci-separator: var(--ci-separator);
+$ci-read: var(--ci-read);
+$ci-read-2: var(--ci-read-2);
+$ci-text-1: var(--ci-text-1);
+$ci-text-2: var(--ci-text-2);
+$ci-link-1: var(--ci-link-1);
+$ci-link-2: var(--ci-link-2);
+
+// icon
+$i-all: var(--i-all);
+$i-new: var(--i-new);
+$i-search: var(--i-search);
+$i-star1: var(--i-star1);
+$i-star2: var(--i-star2);
+$i-notice: var(--i-notice);
+$i-makeRead: var(--i-makeRead);
+$i-makeUnread: var(--i-makeUnread);
+$i-makeHihiglited: var(--i-star2);
+$i-makeUnhihiglited: var(--i-star1);
+$i-check: var(--i-check);
+$i-close: var(--i-close);
+
+// icon inverted
+$ii-all: var(--ii-all);
+$ii-new: var(--ii-new);
+$ii-search: var(--ii-search);
+$ii-star1: var(--ii-star1);
+$ii-star2: var(--ii-star2);
+$ii-notice: var(--ii-notice);
+$ii-makeRead: var(--ii-makeRead);
+$ii-makeUnread: var(--ii-makeUnread);
+$ii-makeHihiglited: var(--ii-star2);
+$ii-makeUnhihiglited: var(--ii-star1);
+$ii-check: var(--ii-check);
+$ii-close: var(--ii-close);
+
+body {
+  --c-background-1: #FFFFFF;
+  --c-background-2: #F0F0F0;
+  --c-background-3: #E0E0E0;
+  --c-background-4: #D0D0D0;
+  --c-highlight: #202020;
+  --c-separator: #808080;
+  --c-read: #F0F0F0;
+  --c-read-2: #E0E0E0;
+  --c-text-1: #202020;
+  --c-text-2: #606060;
+  --c-link-1: #4040D0;
+  --c-link-2: #802080;
+  --ci-background-5: rgba(0, 0, 0, 0.8);
+
+  --ci-background-1: #202020;
+  --ci-background-2: #303030;
+  --ci-background-3: #404040;
+  --ci-background-4: #505050;
+  --ci-background-5: rgba(32, 32, 32, 0.8);
+  --ci-highlight: #FFFFFF;
+  --ci-separator: #808080;
+  --ci-read: #303030;
+  --ci-read-2: #404040;
+  --ci-text-1: #FFFFFF;
+  --ci-text-2: #D0D0D0;
+  --ci-link-1: #4040D0;
+  --ci-link-2: #802080;
+
+  --i-all: url(./cssIcons/dark/all.svg);
+  --i-new: url(./cssIcons/dark/new.svg);
+  --i-search: url(./cssIcons/dark/search.svg);
+  --i-star1: url(./cssIcons/dark/star1.svg);
+  --i-star2: url(./cssIcons/dark/star2.svg);
+  --i-notice: url(./cssIcons/dark/notice.svg);
+  --i-makeRead: url(./cssIcons/dark/makeRead.svg);
+  --i-makeUnread: url(./cssIcons/dark/makeUnread.svg);
+  --i-check: url(./cssIcons/dark/check.svg);
+  --i-close: url(./cssIcons/dark/close.svg);
+
+  --ii-all: url(./cssIcons/light/all.svg);
+  --ii-new: url(./cssIcons/light/new.svg);
+  --ii-search: url(./cssIcons/light/search.svg);
+  --ii-star1: url(./cssIcons/light/star1.svg);
+  --ii-star2: url(./cssIcons/light/star2.svg);
+  --ii-notice: url(./cssIcons/light/notice.svg);
+  --ii-makeRead: url(./cssIcons/light/makeRead.svg);
+  --ii-makeUnread: url(./cssIcons/light/makeUnread.svg);
+  --ii-check: url(./cssIcons/light/check.svg);
+  --ii-close: url(./cssIcons/light/close.svg);
+}
+
+@mixin insertImageBefore($width, $height, $url) {
+  &::before {
+    display: inline-block;
+    content: "";
+    width: $width;
+    height: $height;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: $url;
+    @content;
+  }
+}
+
+@mixin insertImageAfter($width, $height, $url) {
+  &::after {
+    display: inline-block;
+    content: "";
+    width: $width;
+    height: $height;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: $url;
+    @content;
+  }
+}

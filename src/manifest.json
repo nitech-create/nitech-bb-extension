@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "author": "nitech Create",
+  "homepage_url": "https://nitech-create.com/",
+  "name": "NITech BB Extension",
+  "description": "名古屋工業大学の掲示板を使いやすくするサードパーティ製拡張機能です。nitech Create: http://nitech-create.com",
+  "version": "0.0.1",
+  "icons": {
+    "32": "icons/icon.png",
+    "48": "icons/icon.png",
+    "128": "icons/icon.png"
+  },
+  "options_page": "./options/index.html",
+  "browser_action": {
+    "default_icon": "icons/icon.png",
+    "default_popup": "./popup/index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://rpxkeijiban3.ict.nitech.ac.jp/keijiban/app*"],
+      "exclude_matches": ["https://rpxkeijiban3.ict.nitech.ac.jp/keijiban/app?uri=keijiban&next_uri=detail*", "https://rpxkeijiban3.ict.nitech.ac.jp/keijiban/app;jsessionid=*?uri=keijiban&next_uri=detail*"],
+      "css": ["style.css"],
+      "js": ["main.js"]
+    }
+  ]
+}

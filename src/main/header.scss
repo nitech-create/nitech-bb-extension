@@ -1,0 +1,135 @@
+form > div:nth-of-type(2) {
+  display: grid;
+  grid-template-columns: 0px 80px 1fr auto;
+  text-align: left;
+  background-color: $ci-background-1;
+  color: $ci-text-1;
+  padding: 8px 0;
+
+  > div.icon {
+    $icon-size: 0.85em;
+    grid-column: #{"1 / 2"};
+    grid-row: #{"1 / 2"};
+    position: relative;
+    height: $icon-size;
+    margin: auto 0;
+
+    @include insertImageBefore($icon-size, $icon-size, $ii-search) {
+      position: absolute;
+      top: 0;
+      left: 1.1em;
+    }
+  }
+
+  > div.tools {
+    display: flex;
+    grid-column: #{"4 / 5"};
+    grid-row: #{"1 / 2"};
+    padding-right: 20px;
+
+    &.unavailable {
+      visibility: hidden;
+    }
+
+    div {
+      position: relative;
+
+      $button-icon: $ii-makeRead, $ii-makeUnread, $ii-makeHihiglited, $ii-makeUnhihiglited;
+      $icon-size: 16px;
+      @for $index from 1 through length($button-icon){
+        &:nth-of-type(#{$index}) button{
+          @include insertImageBefore($icon-size, $icon-size, nth($button-icon, $index))
+        }
+      }
+
+      button {
+        height: 100%;
+        padding: 0 8px;
+        appearance: none;
+        background-color: $ci-background-1;
+        box-sizing: border-box;
+        border: none;
+        outline: none;
+
+        &:focus {
+          border: 2px solid $c-background-1;
+          outline: none;
+        }
+
+        + div {
+          // 説明文のdiv
+          display: none;
+          position: absolute;
+          left: 50%;
+          top: 110%;
+          transform: translateX(-50%);
+          white-space: nowrap;
+          padding: 4px;
+          border-radius: 4px;
+          background-color: $ci-background-5;
+          font-size: 0.8em;
+        }
+
+        &:hover {
+          background-color: $ci-background-2;
+
+          + div {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  > input {
+    &:nth-of-type(1){
+      // テキスト入力
+      height: 100%;
+      grid-column: #{"3 / 4"};
+      grid-row: #{"1 / 2"};
+      background-color: $ci-background-2;
+      box-sizing: border-box;
+      border: none;
+      color: $ci-text-1;
+      margin-right: 8px;
+
+      &:focus {
+        border: 2px solid $c-background-1;
+        outline: none;
+      }
+
+      &:hover {
+        background-color: $ci-background-3;
+      }
+    }
+
+    &:nth-of-type(2){
+      // 検索ボタン
+      height: 100%;
+      padding: 0;
+      padding-left: 1em;
+      appearance: none;
+      color: $ci-text-1;
+      grid-column: #{"2 / 3"};
+      grid-row: #{"1 / 2"};
+      background-color: $ci-background-1;
+      box-sizing: border-box;
+      border: none;
+      outline: none;
+
+      &:focus {
+        border: 2px solid $c-background-1;
+        outline: none;
+      }
+
+      &:hover {
+        background-color: $ci-background-2;
+      }
+    }
+
+    &:nth-of-type(3) {
+      // 一括表示ボタン(動かないボタン)
+      display: none;
+    }
+  }
+}

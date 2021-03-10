@@ -1,0 +1,69 @@
+td {
+  display: block;
+}
+
+table {
+  tr {
+    display: grid;
+    grid-template-columns: 28px 28px 1fr min(200px, 20%) min(95px, 11%);
+
+    &:first-of-type {
+      // 見出し行
+      > td {
+        text-align: left;
+        width: 100%;
+
+        $toHide: 1, 2, 4, 5, 6, 8;
+        @for $index from 1 through length($toHide) {
+          &:nth-child(#{nth($toHide, $index)}) {
+            display: none;
+          }
+        }
+
+        &:nth-child(3) {
+          grid-column: 5 / 6;
+          grid-row: 1 / 2;
+        }
+        &:nth-child(7) {
+          grid-column: 3 / 4;
+          grid-row: 1 / 2;
+        }
+        &:nth-child(9) {
+          grid-column: 4 / 5;
+          grid-row: 1 / 2;
+        }
+        &:nth-child(10) {
+          grid-column: 1 / 3;
+          grid-row: 1 / 2;
+        }
+      }
+    }
+
+    + tr > td {
+      // 掲示行
+      $toHide: 0, 1, 4, 5, 6, 8;
+      @for $index from 1 through length($toHide) {
+        &:nth-child(#{nth($toHide, $index)}) {
+          display: none;
+        }
+      }
+
+      &:nth-child(3) {
+        grid-column: 5 / 6;
+        grid-row: 1 / 2;
+      }
+      &:nth-child(7) {
+        grid-column: 3 / 4;
+        grid-row: 1 / 2;
+      }
+      &:nth-child(9) {
+        grid-column: 4 / 5;
+        grid-row: 1 / 2;
+      }
+      &:nth-child(10) {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+      }
+    }
+  }
+}

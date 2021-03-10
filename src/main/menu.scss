@@ -1,0 +1,38 @@
+ul#menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+
+  > li {
+    display: flex;
+    height: 40px;
+    padding: 4px 8px;
+    border-left: 8px solid transparent;
+    list-style: none;
+    align-items: center;
+
+    &:hover {
+      background-color: $c-background-2;
+    }
+
+    &.selected {
+      border-left-color: $c-highlight;
+      background-color: $c-background-2;
+
+      &:hover {
+        background-color: $c-background-3;
+      }
+    }
+
+    $button-icon: $i-all, $i-new, $i-star2, $i-notice;
+    $icon-size: 0.85em;
+    @for $index from 1 through length($button-icon){
+      &:nth-of-type(#{$index}){
+        @include insertImageBefore($icon-size, $icon-size, nth($button-icon, $index)) {
+          margin-right: 0.4em;
+        }
+      }
+    }
+  }
+}
