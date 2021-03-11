@@ -44,66 +44,69 @@ div#contentView {
     width: 90vw;
     max-width: 1000px;
     height: 90vh;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: auto auto auto auto;
     padding: 16px;
-    background-color: $c-background-1;
-    border: 1px solid $c-separator;
     border-radius: 4px;
     overflow-x: hidden;
     overflow-y: scroll;
+    background-color: $c-background-1;
+    border: 1px solid $c-separator;
     color: $c-text-1;
     font-size: 16px;
 
-    > h1{
-      grid-column: 1 / 3;
-      grid-row: 1 / 2;
-      display: flex;
-      align-items: center;
-      margin: 0;
-      padding-bottom: 4px;
-      font-weight: normal;
-      border-bottom: 1px solid $ci-separator;
-      font-size: 1.65em;
-    }
+    > div {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-rows: auto auto auto auto;
 
-    > section.sender {
-      grid-column: 1 / 2;
-      grid-row: 2 / 4;
-      display: flex;
-      align-items: center;
-      padding: 4px 0;
-      font-size: 1.25em;
-    }
+      > h1{
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+        display: flex;
+        align-items: center;
+        margin: 0;
+        padding-bottom: 4px;
+        font-weight: normal;
+        border-bottom: 1px solid $ci-separator;
+        font-size: 1.65em;
+      }
 
-    > section.displayTime {
-      grid-column: 2 / 3;
-      grid-row: 2 / 3;
-      padding-top: 4px;
-      color: $c-text-2;
-      font-size: 0.9em;
-    }
+      > section.sender {
+        grid-column: 1 / 2;
+        grid-row: 2 / 4;
+        display: flex;
+        align-items: center;
+        padding: 4px 0;
+        font-size: 1.25em;
+      }
 
-    > section.enforceTime {
-      grid-column: 2 / 3;
-      grid-row: 3 / 4;
-      padding-bottom: 4px;
-      color: $c-text-2;
-      font-size: 0.9em;
-    }
+      > section.displayTime {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        padding-top: 4px;
+        color: $c-text-2;
+        font-size: 0.9em;
+      }
 
-    > section.content {
-      grid-column: 1 / 3;
-      grid-row: 4 / 5;
-      border-top: 1px solid $ci-separator;
-      padding: 8px 0;
+      > section.enforceTime {
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+        padding-bottom: 4px;
+        color: $c-text-2;
+        font-size: 0.9em;
+      }
 
-      a {
-        color: $c-link-1;
-        text-decoration: underline;
-        &:visited {
-          color: $c-link-2;
+      > section.content {
+        grid-column: 1 / 3;
+        grid-row: 4 / 5;
+        border-top: 1px solid $ci-separator;
+        padding: 8px 0;
+
+        a {
+          color: $c-link-1;
+          text-decoration: underline;
+          &:visited {
+            color: $c-link-2;
+          }
         }
       }
     }

@@ -3,6 +3,7 @@ import {getContent} from './ajax.js';
 export function initContentView(){
   const wrapper = document.createElement('div');
   const div = document.createElement('div');
+  const div2 = document.createElement('div');
   wrapper.id = 'contentView';
   wrapper.classList.add('hidden');
 
@@ -10,9 +11,9 @@ export function initContentView(){
   button.classList.add('close');
 
   wrapper.addEventListener('click', () => { wrapper.classList.add('hidden') });
-  button.addEventListener('click', () => { wrapper.classList.add('hidden') });
   div.addEventListener('click', (e) => { e.stopPropagation() });
 
+  div.appendChild(div2);
   wrapper.appendChild(button);
   wrapper.appendChild(div);
   document.body.appendChild(wrapper);
@@ -35,7 +36,7 @@ export function contentView(idDate, idIndex){
       content: tdList[4][0]
     }
 
-    const el = document.querySelector('#contentView div');
+    const el = document.querySelector('#contentView div div');
     el.innerHTML = `
     <h1>${bulletin.title}</h1>
     <section class="sender">${bulletin.sender}</section>

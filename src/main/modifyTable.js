@@ -13,8 +13,11 @@ function modifyTableHead(){
 
   // すべて既読にするボタン
   const td = document.createElement('td');
+  const wrapper = document.createElement('div');
   const button = document.createElement('button');
+  const tip = document.createElement('div');
   button.type = 'button';
+  tip.textContent = 'すべて既読';
 
   button.addEventListener('click', () => {
     showProgress();
@@ -37,7 +40,9 @@ function modifyTableHead(){
     });
   });
 
-  td.appendChild(button);
+  wrapper.appendChild(button);
+  wrapper.appendChild(tip);
+  td.appendChild(wrapper);
   tr.appendChild(td);
 }
 

@@ -1,11 +1,20 @@
 table {
   border-collapse: collapse;
+
+  tbody {
+    position: relative;
+    z-index: 0;
+  }
 }
 
 tr:first-of-type {
   border-bottom: 1px solid $c-separator;
+  position: relative;
+  z-index: 10;
 
   td {
+    z-index: 0;
+
     &:hover {
       background-color: $c-background-2;
     }
@@ -16,16 +25,49 @@ tr:first-of-type {
 
     &:nth-of-type(10) {
       // すべて既読にするボタン
-      button {
-        width: 100%;
-        height: 100%;
-        padding: 0 8px;
-        appearance: none;
-        background-color: transparent;
-        box-sizing: border-box;
-        border: none;
-        outline: none;
-        @include insertImageAfter(90%, 90%, $i-makeRead);
+
+      div {
+        position: relative;
+        z-index: 10;
+
+        button {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          padding: 0 8px;
+          appearance: none;
+          background-color: transparent;
+          box-sizing: border-box;
+          border: none;
+          outline: none;
+          @include insertImageBefore(90%, 90%, $i-makeRead);
+
+          &:focus {
+            border: 2px solid $ci-background-1;
+            outline: none;
+          }
+        }
+
+        div {
+          // 説明文のdiv
+          display: none;
+          position: absolute;
+          left: 50%;
+          top: 110%;
+          transform: translateX(-50%);
+          white-space: nowrap;
+          padding: 4px;
+          border-radius: 4px;
+          background-color: $ci-background-5;
+          font-size: 0.8em;
+          color: $ci-text-1;
+        }
+
+        &:hover {
+          div {
+            display: block;
+          }
+        }
       }
     }
   }
@@ -34,7 +76,9 @@ tr:first-of-type {
 tr + tr {
   background-color: $c-background-1;
   border-left: 6px solid transparent;
-  padding: 8px 0;
+  padding: 8px 1;
+  position: relative;
+  z-index: 1;
 
   &:not(last-child) {
     border-bottom: 1px solid $c-separator;
