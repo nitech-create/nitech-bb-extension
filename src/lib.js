@@ -28,7 +28,7 @@ const promiseWrapper = {
 promiseWrapper.storage.local.get = key => {
   return new Promise((resolve, reject) => {
     chrome.storage.local.get(key, data => {
-      if (!data.hasOwnProperty(key)) {
+      if (!Object.prototype.hasOwnProperty.call(data, key)) {
         // ストレージにキーが存在しない
         reject(new Error('storage access by undefined key: ' + key));
       } else {

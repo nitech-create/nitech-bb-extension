@@ -41,6 +41,7 @@ $i-makeHihiglited: var(--i-star2);
 $i-makeUnhihiglited: var(--i-star1);
 $i-check: var(--i-check);
 $i-close: var(--i-close);
+$i-pin: var(--i-pin);
 
 // icon inverted
 $ii-all: var(--ii-all);
@@ -55,6 +56,7 @@ $ii-makeHihiglited: var(--ii-star2);
 $ii-makeUnhihiglited: var(--ii-star1);
 $ii-check: var(--ii-check);
 $ii-close: var(--ii-close);
+$ii-pin: var(--ii-pin);
 
 body {
   --c-background-1: #FFFFFF;
@@ -95,6 +97,7 @@ body {
   --i-makeUnread: url(./cssIcons/dark/makeUnread.svg);
   --i-check: url(./cssIcons/dark/check.svg);
   --i-close: url(./cssIcons/dark/close.svg);
+  --i-pin: url(./cssIcons/dark/pin.svg);
 
   --ii-all: url(./cssIcons/light/all.svg);
   --ii-new: url(./cssIcons/light/new.svg);
@@ -106,6 +109,7 @@ body {
   --ii-makeUnread: url(./cssIcons/light/makeUnread.svg);
   --ii-check: url(./cssIcons/light/check.svg);
   --ii-close: url(./cssIcons/light/close.svg);
+  --ii-pin: url(./cssIcons/dark/pin.svg);
 }
 
 @mixin insertImageBefore($width, $height, $url) {

@@ -31,51 +31,11 @@ form > div:nth-of-type(2) {
       visibility: hidden;
     }
 
-    div {
-      position: relative;
-
-      $button-icon: $ii-makeRead, $ii-makeUnread, $ii-makeHihiglited, $ii-makeUnhihiglited;
-      $icon-size: 16px;
-      @for $index from 1 through length($button-icon){
-        &:nth-of-type(#{$index}) button{
-          @include insertImageBefore($icon-size, $icon-size, nth($button-icon, $index))
-        }
-      }
-
-      button {
-        height: 100%;
-        padding: 0 8px;
-        appearance: none;
-        background-color: $ci-background-1;
-        box-sizing: border-box;
-        border: none;
-        outline: none;
-
-        &:focus {
-          border: 2px solid $c-background-1;
-          outline: none;
-        }
-
-        + div {
-          // 説明文のdiv
-          display: none;
-          position: absolute;
-          left: 50%;
-          top: 110%;
-          transform: translateX(-50%);
-          white-space: nowrap;
-          padding: 4px;
-          border-radius: 4px;
-          background-color: $ci-background-5;
-          font-size: 0.8em;
-        }
-
-        &:hover {
-          background-color: $ci-background-2;
-
-          + div {
-            display: block;
-          }
+    $button-icon: $ii-makeRead, $ii-makeUnread, $ii-makeHihiglited, $ii-makeUnhihiglited;
+    @for $index from 1 through length($button-icon){
+      div.toolButtonWrapper:nth-of-type(#{$index}) {
+        @include toolButton($ci-background-1, $ci-background-2, $ci-separator, 16px, nth($button-icon, $index)){
+          height: 100%;
         }
       }
     }

@@ -1,4 +1,6 @@
 import {getContent} from './ajax.js';
+import {storeBulletin} from './chrome.js';
+import createButton from './createButton.js';
 
 export function initContentView(){
   const wrapper = document.createElement('div');
@@ -6,6 +8,7 @@ export function initContentView(){
   const div2 = document.createElement('div');
   wrapper.id = 'contentView';
   wrapper.classList.add('hidden');
+  div2.classList.add('content');
 
   const button = document.createElement('button');
   button.classList.add('close');
@@ -58,6 +61,11 @@ export function contentView(idDate, idIndex){
     </section>
     <section class="content">${bulletin.content}</section>
     `;
+
+    // ピン留めボタン
+    document.querySelector('#contentView div div h1').appendChild(createButton('ピン留めする', '', () => {
+      storeBulletin(idDate, idIndex, bulletin);
+    }));
 
     document.getElementById('contentView').classList.remove('hidden');
   });

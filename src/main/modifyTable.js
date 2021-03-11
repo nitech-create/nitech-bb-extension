@@ -6,6 +6,7 @@ import {setToToggle} from './sessionStorage.js';
 import {readControl} from './ajax.js';
 import {contentView} from './contentView.js';
 import {showProgress, hideProgress} from './progressView.js';
+import createButton from './createButton.js';
 
 function modifyTableHead(){
   const tr = document.body.querySelector('tr');
@@ -13,13 +14,8 @@ function modifyTableHead(){
 
   // すべて既読にするボタン
   const td = document.createElement('td');
-  const wrapper = document.createElement('div');
-  const button = document.createElement('button');
-  const tip = document.createElement('div');
-  button.type = 'button';
-  tip.textContent = 'すべて既読';
 
-  button.addEventListener('click', () => {
+  td.appendChild(createButton('すべて既読', '', () => {
     showProgress();
 
     const idList = [];
@@ -38,11 +34,7 @@ function modifyTableHead(){
       modifyTable();
       hideProgress();
     });
-  });
-
-  wrapper.appendChild(button);
-  wrapper.appendChild(tip);
-  td.appendChild(wrapper);
+  }));
   tr.appendChild(td);
 }
 

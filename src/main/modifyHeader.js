@@ -3,6 +3,7 @@ import forEachTr from './forEachTr.js';
 import {readControl, flagControl} from './ajax.js';
 import {modifyTable} from './modifyTable.js';
 import {showProgress, hideProgress} from './progressView.js';
+import createButton from './createButton.js';
 
 export function modifyHeader(){
   // 検索領域(ヘッダになる部分)のTextNodeを削除
@@ -45,21 +46,7 @@ export function updateHeader(){
 }
 
 function makeButton(click, name, tooltip){
-  const wrapper = document.createElement('div');
-  const button = document.createElement('button');
-  const tip = document.createElement('div');
-
-  button.classList.add('toolButton');
-  button.classList.add(name);
-  button.addEventListener('click', click);
-  button.type = 'button';
-
-  tip.textContent = tooltip;
-
-  wrapper.appendChild(button);
-  wrapper.appendChild(tip);
-
-  return wrapper;
+  return createButton(tooltip, name, click);
 }
 
 function deselectAll(){

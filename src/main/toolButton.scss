@@ -1,0 +1,41 @@
+@mixin toolButton($bgcolor1, $bgcolor2, $outline-color, $icon-size, $icon) {
+  position: relative;
+
+  > button.toolButton {
+    padding: 0 8px;
+    appearance: none;
+    background-color: $bgcolor1;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    @include insertImageBefore($icon-size, $icon-size, $icon);
+    @content;
+
+    &:focus {
+      border: 2px solid $outline-color;
+      outline: none;
+    }
+
+    + div.toolButtonTip {
+      display: none;
+      position: absolute;
+      left: 50%;
+      top: 110%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      padding: 4px;
+      border-radius: 4px;
+      background-color: $ci-background-5;
+      color: $ci-text-1;
+      font-size: 0.8em;
+    }
+
+    &:hover {
+      background-color: $bgcolor2;
+
+      + div.toolButtonTip {
+        display: block;
+      }
+    }
+  }
+}
