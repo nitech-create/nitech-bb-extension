@@ -5,14 +5,16 @@
 名工大の掲示板の見た目整え、機能を追加するGoogle Chrome用拡張機能。
 
 ## 開発状況
-フロントのみ
-popup, optionsは未着手
+フロント, popupのみ  
+optionsは未着手
 
 ## 開発環境
 
 Node.js v14.15.1
 
 ## ビルド方法
+
+`./dist`に生成されます
 
 ```
 npm install
