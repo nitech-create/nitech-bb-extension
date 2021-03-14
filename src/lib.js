@@ -1,4 +1,4 @@
-const promiseWrapper = {
+export const promiseWrapper = {
   storage: {
     local: {
       // wrapper of chrome.storage.local.get
@@ -19,18 +19,13 @@ const promiseWrapper = {
   },
 };
 
-/**
- * Wrapper of chrome.storage.local.get.
- * storageにキーに対応するデータがないにErrorをthrowします。しっかりcatchしましょう。
- * @param {String} key
- * @return {Promise}
- */
+// wrapper of chrome.storage.local.get
 promiseWrapper.storage.local.get = key => {
   return new Promise((resolve, reject) => {
     chrome.storage.local.get(key, data => {
       if (!Object.prototype.hasOwnProperty.call(data, key)) {
         // ストレージにキーが存在しない
-        reject(new Error('storage access by undefined key: ' + key));
+        resolve(null)
       } else {
         resolve(data);
       }
@@ -73,5 +68,3 @@ promiseWrapper.tabs.sendMessage = (tabId, data) => {
     });
   });
 };
-
-export default promiseWrapper;

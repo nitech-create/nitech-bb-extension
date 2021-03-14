@@ -22,5 +22,6 @@
       "css": ["style.css"],
       "js": ["main.js"]
     }
-  ]
+  ],
+  "permissions": ["https://rpxkeijiban3.ict.nitech.ac.jp/keijiban/app*", "storage"]
 }

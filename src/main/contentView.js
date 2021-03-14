@@ -1,5 +1,5 @@
 import {getContent} from './ajax.js';
-import {storeBulletin} from './chrome.js';
+import {storeBulletin} from '../storage.js';
 import createButton from './createButton.js';
 
 export function initContentView(){
@@ -27,16 +27,18 @@ export function contentView(idDate, idIndex){
     const parser = new DOMParser();
     const doc = parser.parseFromString(contentStr, 'text/html');
     const table = doc.querySelector('table');
-    const tdList = Array.from(table.querySelectorAll('tr')).map((tr) => Array.from(tr.querySelectorAll('td')).map((td) => td.innerHTML.trim()));
+    const tdList = Array.from(table.querySelectorAll('tr')).map((tr) => tr.querySelectorAll('td'));
 
     const bulletin = {
-      title: tdList[0][1],
-      sender: tdList[1][1],
-      enforceStart: tdList[2][1],
-      enforceEnd: tdList[2][3],
-      displayStart: tdList[3][1],
-      displayEnd: tdList[3][3],
-      content: tdList[4][0]
+      title:        tdList[0][1].textContent.trim(),
+      sender:       tdList[1][1].textContent.trim(),
+      enforceStart: tdList[2][1].textContent.trim(),
+      enforceEnd:   tdList[2][3].textContent.trim(),
+      displayStart: tdList[3][1].textContent.trim(),
+      displayEnd:   tdList[3][3].textContent.trim(),
+      content:      tdList[4][0].innerHTML.trim(),
+      idDate:  idDate,
+      idIndex: idIndex
     }
 
     const el = document.querySelector('#contentView div div');
@@ -64,7 +66,7 @@ export function contentView(idDate, idIndex){
 
     // ピン留めボタン
     document.querySelector('#contentView div div h1').appendChild(createButton('ピン留めする', '', () => {
-      storeBulletin(idDate, idIndex, bulletin);
+      storeBulletin(bulletin);
     }));
 
     document.getElementById('contentView').classList.remove('hidden');
