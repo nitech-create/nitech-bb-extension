@@ -56,4 +56,22 @@ body {
   --ci-text-2: #D0D0D0;
   --ci-link-1: #4040D0;
   --ci-link-2: #802080;
+
+  &.nitech-bb-blue {
+    --c-highlight: #2F79C3;
+
+    --ci-background-1: #2F79C3;
+    --ci-background-2: #3E87D0;
+    --ci-background-3: #4D95DD;
+    --ci-background-4: #5CA3EA;
+  }
+
+  &.nitech-navy {
+    --c-highlight: #044E87;
+
+    --ci-background-1: #044E87;
+    --ci-background-2: #065FA2;
+    --ci-background-3: #0870BD;
+    --ci-background-4: #0A81D8;
+  }
 }

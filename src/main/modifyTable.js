@@ -41,7 +41,7 @@ function modifyTableHead(){
 export function init(){
   modifyTableHead();
 
-  Array.from(document.body.querySelectorAll('tr+tr')).forEach((tr) => {
+  Array.from(document.body.querySelectorAll('tr+tr')).forEach((tr, i) => {
     const read = tr.querySelector('input[name="check_mk"]').checked;
     const highlighted = tr.querySelector('input[name="check_flag"]').checked;
 
@@ -97,8 +97,6 @@ export function init(){
         td.appendChild(label);
         tr.appendChild(td);
       })();
-
-      // モーダルで開くよう変更
     }
   });
 }
