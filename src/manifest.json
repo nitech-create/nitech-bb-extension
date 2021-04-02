@@ -19,7 +19,6 @@
     {
       "matches": ["https://rpxkeijiban3.ict.nitech.ac.jp/keijiban/app*"],
       "exclude_matches": ["https://rpxkeijiban3.ict.nitech.ac.jp/keijiban/app?uri=keijiban&next_uri=detail*", "https://rpxkeijiban3.ict.nitech.ac.jp/keijiban/app;jsessionid=*?uri=keijiban&next_uri=detail*"],
-      "css": ["style.css"],
       "js": ["main.js"]
     }
   ],

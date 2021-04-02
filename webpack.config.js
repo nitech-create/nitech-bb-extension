@@ -9,12 +9,17 @@ module.exports = [
     module: {
       rules: [
         {
+          test: /\.jsx$/,
+          exclude: /node_modules/,
+          loader: 'babel-loader'
+        },
+        {
           test: /\.scss$/,
           use: [
-            {
-              // CSSを別ファイルに出力
-              loader: MiniCssExtractPlugin.loader
-            },
+            // {
+            //   // CSSを別ファイルに出力
+            //   loader: MiniCssExtractPlugin.loader
+            // },
             {
               // CSSを読み込み
               loader: 'css-loader',
@@ -43,9 +48,7 @@ module.exports = [
         }
       ],
     },
-    entry: {
-      'main':  './src/main/main.js'
-    },
+    entry: path.join(__dirname, 'src/main/main.jsx'),
     output: {
       filename: '[name].js',
       path: path.join(__dirname, 'dist')
@@ -57,9 +60,9 @@ module.exports = [
           { from: './src/icons', to: 'icons' },
         ]
       }),
-      new MiniCssExtractPlugin({
-        filename: 'style.css'
-      }),
+      // new MiniCssExtractPlugin({
+      //   filename: 'style.css'
+      // }),
     ],
     mode: 'development',
     devtool: 'inline-cheap-source-map',
