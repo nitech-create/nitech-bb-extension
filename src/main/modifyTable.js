@@ -3,7 +3,7 @@ import removeTextNodes from './removeTextNodes.js';
 import {updateHeader} from './modifyHeader.js';
 import forEachTr from './forEachTr.js';
 import {setToToggle} from './sessionStorage.js';
-import {readControl} from './ajax.js';
+import {readControl, flagControl} from './ajax.js';
 import {contentView} from './contentView.js';
 import {showProgress, hideProgress} from './progressView.js';
 import createButton from './createButton.js';
@@ -56,7 +56,28 @@ export function init(){
       const id_date  = tr.querySelector('input[name="id_date"]').value;
       const id_index = tr.querySelector('input[name="id_index"]').value;
       tr.querySelector('input[name="check_mk"]').id = `${id_date}+${id_index}+check_mk`;
-      tr.querySelector('input[name="check_flag"]').id = `${id_date}+${id_index}+check_flag`;
+
+      // 強調ボタンの挙動変更(置き換え)
+      ((input) => {
+        const newInput = document.createElement('input');
+        newInput.type = 'checkbox';
+        newInput.id = `${id_date}+${id_index}+check_flag`;
+        newInput.name = 'check_flag';
+        newInput.checked = input.checked;
+        newInput.addEventListener('click', (e) => {
+          flagControl(id_date, id_index, e.target.checked).then((result) => {
+            e.target.checked = (result === 'true');
+            console.log(result);
+            modifyTable();
+            hideProgress();
+          });
+          showProgress();
+          e.target.checked = !e.target.checked;
+        });
+
+        input.parentNode.insertBefore(newInput, input);
+        input.parentNode.removeChild(input);
+      })(tr.querySelector('input[name="check_flag"]'));
 
       // 装飾用ラベルを追加
       const labelCheckFlag = document.createElement('label');
