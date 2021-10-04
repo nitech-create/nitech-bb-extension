@@ -1,6 +1,6 @@
 {
   "name": "nitech-bb-extension",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "名古屋工業大学の掲示板を使いやすくするサードパーティ製拡張機能です。",
   "repository": {
     "type": "git",

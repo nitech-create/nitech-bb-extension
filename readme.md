@@ -1,4 +1,4 @@
-# NitechBB Extension
+# NITech BB Extension
 
 ## 概要
 

@@ -1,10 +1,10 @@
 {
   "manifest_version": 2,
   "author": "nitech Create",
-  "homepage_url": "https://nitech-create.com/",
+  "homepage_url": "https://github.com/nitech-create/nitech-bb-extension",
   "name": "NITech BB Extension",
-  "description": "名古屋工業大学の掲示板を使いやすくするサードパーティ製拡張機能です。nitech Create: http://nitech-create.com",
-  "version": "0.0.2",
+  "description": "名古屋工業大学の掲示板を使いやすくするサードパーティ製Chrome拡張機能です。情報基盤センターとは無関係で非公式なものであり、また問題が起きても責任は取れません。nitech Create: http://nitech-create.com",
+  "version": "1.0.0",
   "icons": {
     "32": "icons/icon.png",
     "48": "icons/icon.png",
